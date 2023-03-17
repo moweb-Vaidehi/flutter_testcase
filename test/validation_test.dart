@@ -11,7 +11,7 @@ void main() {
 
   test('validate email id', () {
     var result = fieldValidator.validateEmail('abc@gmail.com');
-    expect(result, 'Enter Valid Email');
+    expect(result, 'true');
   });
 
   group('Password check', () {

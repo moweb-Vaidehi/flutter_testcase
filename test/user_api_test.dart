@@ -20,6 +20,7 @@ void main() {
       const responseBody =
           '{"userId": 1, "id": 1, "title": "Test Title", "body": "Test Body"}';
       final response = http.Response(responseBody, 200);
+
       when(() => httpClient
               .get(Uri.parse("https://jsonplaceholder.typicode.com/posts/1")))
           .thenAnswer((_) async => response);
@@ -27,7 +28,7 @@ void main() {
       final result = await apiProvider.fetchPosts();
 
       expect(result, isA<ItemModel>());
-      expect(result.userId, 2);
+      expect(result.userId, 1);
       expect(result.title, "Test Title");
     });
 

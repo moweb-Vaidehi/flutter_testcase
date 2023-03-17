@@ -8,6 +8,7 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(home: LoginDesign()),
       );
+
       expect(
         find.byType(SetEmailField),
         findsOneWidget,

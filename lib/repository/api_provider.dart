@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_testcase/model/item_model.dart';
 import 'package:http/http.dart' show Client;
 import 'dart:convert';
