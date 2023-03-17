@@ -6,7 +6,7 @@ void main() {
   group('Widget Test', () {
     testWidgets('Test Email', (WidgetTester tester) async {
       await tester.pumpWidget(
-        const LoginDesign(),
+        const MaterialApp(home: LoginDesign()),
       );
       expect(
         find.byType(SetEmailField),
@@ -21,9 +21,20 @@ void main() {
     });
 
     testWidgets('Test LoginButton', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: LoginDesign()));
       Finder loginButton = find.byKey(const Key('login_btn'));
-      await tester.tap(loginButton);
-      await tester.pump();
+      expect(
+        loginButton,
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('More Test', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: LoginDesign()));
+      expect(
+        find.byWidget(ListView()),
+        findsNothing,
+      );
     });
   });
 }

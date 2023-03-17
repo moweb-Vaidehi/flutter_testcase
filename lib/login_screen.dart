@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_testcase/home_screen.dart';
 
 class LoginDesign extends StatefulWidget {
   const LoginDesign({super.key});
@@ -8,7 +9,7 @@ class LoginDesign extends StatefulWidget {
 }
 
 class _LoginDesignState extends State<LoginDesign> {
-  final passwordController = TextEditingController(text: 'password');
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class _LoginDesignState extends State<LoginDesign> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Login'),
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.blueAccent,
         ),
         body: Center(
           child: Column(
@@ -42,7 +43,7 @@ class _LoginDesignState extends State<LoginDesign> {
                 ),
               ),
               const SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
               SizedBox(
                 height: 60.0,
@@ -51,17 +52,21 @@ class _LoginDesignState extends State<LoginDesign> {
                   key: const Key('login_btn'),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                      Colors.orange,
+                      Colors.blueAccent,
                     ),
                   ),
                   onPressed: () {
-                    // print('Text field input - ${emailAddressController.text}');
-                    // BlocProvider.of<LoginBloc>(context).add(LoginAPIEvents(
-                    //     emailId: emailAddressController.text,
-                    //  password: passwordController.text));
+                    var snackBar =
+                        const SnackBar(content: Text('Button Pressed'));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                    });
                   },
                   child: const Text(
                     'Login',
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               ),
@@ -74,8 +79,7 @@ class _LoginDesignState extends State<LoginDesign> {
 }
 
 class SetEmailField extends StatelessWidget {
-  final emailAddressController =
-      TextEditingController(text: 'calendar_test@gmail.com');
+  final emailAddressController = TextEditingController();
 
   SetEmailField({super.key});
 
