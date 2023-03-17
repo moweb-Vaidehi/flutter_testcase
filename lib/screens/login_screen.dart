@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_testcase/home_screen.dart';
+import 'package:flutter_testcase/screens/home_screen.dart';
 
 class LoginDesign extends StatefulWidget {
   const LoginDesign({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_testcase/validator.dart';
+import 'package:flutter_testcase/utils/validator.dart';
 
 void main() {
   final fieldValidator = FieldValidator();
