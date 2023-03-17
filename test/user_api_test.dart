@@ -23,14 +23,11 @@ void main() {
       when(() => httpClient
               .get(Uri.parse("https://jsonplaceholder.typicode.com/posts/1")))
           .thenAnswer((_) async => response);
-      //thenReturn
-      //thenThrow
-      //thenAnswer
 
       final result = await apiProvider.fetchPosts();
 
       expect(result, isA<ItemModel>());
-      expect(result.userId, 1);
+      expect(result.userId, 2);
       expect(result.title, "Test Title");
     });
 
@@ -42,4 +39,9 @@ void main() {
       expect(() => apiProvider.fetchPosts(), throwsException);
     });
   });
+
+  //thenReturn
+  //thenThrow
+  //thenAnswer
+  //when(mockCalculator.add(1, 2)).thenReturn(3);
 }

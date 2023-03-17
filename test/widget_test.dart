@@ -17,6 +17,10 @@ void main() {
     testWidgets('TestPassword', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: LoginDesign()));
       Finder passwordField = find.byKey(const Key('password'));
+      expect(
+        passwordField,
+        findsOneWidget,
+      );
       await tester.enterText(passwordField, "abc123");
     });
 

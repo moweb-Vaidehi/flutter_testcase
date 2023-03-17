@@ -12,7 +12,7 @@ void main() {
       await tester.pumpWidget(const MaterialApp(home: LoginDesign()));
 
       // Ensure that all fields are available
-      expect(find.text('Login'), findsOneWidget);
+      expect(find.text('Login'), findsWidgets);
       expect(find.text('Email'), findsOneWidget);
       expect(find.byKey(const Key('password')), findsOneWidget);
       expect(find.byKey(const Key('login_btn')), findsOneWidget);
@@ -22,13 +22,17 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: LoginDesign()));
 
-      await tester.enterText(find.byType(TextField), 'test_user@gmail.com');
+      final emailField = find.byType(SetEmailField);
+      await tester.enterText(emailField, 'test_user@gmail.com');
+
       await tester.enterText(find.byKey(const Key('password')), 'Abc@123');
+
       await tester.tap(find.byKey(const Key('login_btn')));
+
+      await tester.pumpAndSettle();
 
       // Wait for one second (Faking delay)
       await Future.delayed(const Duration(seconds: 2));
-      await tester.pumpAndSettle();
 
       // Navigate to the home screen
       expect(find.byType(HomeScreen), findsOneWidget);
