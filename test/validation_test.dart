@@ -10,7 +10,7 @@ void main() {
   });
 
   test('validate email id', () {
-    var result = fieldValidator.validateEmail('abc8gmail.com');
+    var result = fieldValidator.validateEmail('abc@gmail.com');
     expect(result, 'Enter Valid Email');
   });
 
@@ -22,7 +22,7 @@ void main() {
 
     test('validate Password', () {
       var result = fieldValidator.validatePassword('456868768786');
-      expect(result, '');
+      expect(result, 'true');
     });
   });
 }

@@ -10,7 +10,7 @@ class FieldValidator {
     if (!emailValid) {
       return 'Enter Valid Email';
     }
-    return '';
+    return 'true';
   }
 
   String validatePassword(String value) {
@@ -21,6 +21,6 @@ class FieldValidator {
     if (value.length < 6) {
       return 'Password is too short';
     }
-    return '';
+    return 'true';
   }
 }
